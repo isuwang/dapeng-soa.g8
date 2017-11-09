@@ -42,4 +42,4 @@ lazy val $name$_service = (project in file("$name$-service"))
       "ch.qos.logback" % "logback-core" % "1.1.3",
       "mysql" % "mysql-connector-java" % "5.1.36",
       "com.alibaba" % "druid" % "1.0.17"
-    ))
+    )).enablePlugins(ImageGeneratorPlugin)
