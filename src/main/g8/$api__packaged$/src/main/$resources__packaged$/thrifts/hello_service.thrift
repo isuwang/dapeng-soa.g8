@@ -1,4 +1,4 @@
-namespace java $organization$.$name$.service
+namespace java $organization$.soa.hello.service
 
 include "hello_domain.thrift"
 
