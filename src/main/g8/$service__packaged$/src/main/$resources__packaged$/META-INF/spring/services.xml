@@ -3,11 +3,12 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:soa="http://soa-springtag.isuwang.com/schema/service"
        xmlns:context="http://www.springframework.org/schema/context"
-       xmlns:task="http://www.springframework.org/schema/task" xmlns:tx="http://www.springframework.org/schema/tx"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd
         http://soa-springtag.isuwang.com/schema/service
-        http://soa-springtag.isuwang.com/schema/service/service.xsd   http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+        http://soa-springtag.isuwang.com/schema/service/service.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
 
     <!--参数配置-->
     <context:property-placeholder location="classpath:config_$name$.properties" local-override="false"
@@ -30,22 +31,8 @@
         <property name="logSlowSql" value="true"/>
     </bean>
 
-    <bean id="jedisPoolConfig" class="redis.clients.jedis.JedisPoolConfig">
-        <property name="maxTotal" value="20"/>
-        <property name="maxIdle" value="10"/>
-        <property name="maxWaitMillis" value="1000"/>
-        <property name="testOnBorrow" value="true"/>
-    </bean>
-
-    <bean id="jedisPool" class="redis.clients.jedis.JedisPool">
-        <constructor-arg index="0" ref="jedisPoolConfig"/>
-        <constructor-arg index="1" value="$"$"${REDIS_HOST}"/>
-        <constructor-arg index="2" value="$"$"${REDIS_PORT}" type="int"/>
-        <constructor-arg index="3" value="2000" type="int"/>
-    </bean>
-
     <!-- 数据库和事务配置 -->
-    <bean id="$"$"$name$"$"$_dataSource" class="com.alibaba.druid.pool.DruidDataSource" init-method="init"
+    <bean id="$name$_dataSource" class="com.alibaba.druid.pool.DruidDataSource" init-method="init"
           destroy-method="close">
         <!-- 基本属性 url、user、password -->
         <property name="url" value="$"$"${DB_CRMDB_URL}"/>
@@ -90,14 +77,5 @@
     </bean>
 
 
-    <bean id="transactionManager_dataSource" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
-        <property name="dataSource" ref="crm_dataSource"/>
-        <property name="defaultTimeout" value="30"/>
-        <qualifier value="$"$"$crm$"$"$"/>
-    </bean>
-
-    <tx:annotation-driven transaction-manager="transactionManager_dataSource"/>
-    <bean id="druidDataSourceMonitor" class="com.isuwang.dapeng.monitor.druid.DruidDataSourceMonitor" init-method="init"
-          destroy-method="destory"/>
 
 </beans>
