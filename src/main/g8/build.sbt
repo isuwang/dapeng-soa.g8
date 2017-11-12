@@ -41,6 +41,6 @@ lazy val $name$_service = (project in file("$name$-service"))
       "ch.qos.logback" % "logback-classic" % "1.1.3",
       "ch.qos.logback" % "logback-core" % "1.1.3",
       "mysql" % "mysql-connector-java" % "5.1.36",
-``      "com.alibaba" % "druid" % "1.0.17",
+      "com.alibaba" % "druid" % "1.0.17",
       "org.springframework" % "spring-context" % "4.2.4.RELEASE"
     )).enablePlugins(ImageGeneratorPlugin)

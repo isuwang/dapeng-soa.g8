@@ -32,7 +32,7 @@
     </bean>
 
     <!-- 数据库和事务配置 -->
-    <bean id="$name$_dataSource" class="com.alibaba.druid.pool.DruidDataSource" init-method="init"
+    <bean id="crm__dataSource" class="com.alibaba.druid.pool.DruidDataSource" init-method="init"
           destroy-method="close">
         <!-- 基本属性 url、user、password -->
         <property name="url" value="$"$"${DB_CRMDB_URL}"/>
