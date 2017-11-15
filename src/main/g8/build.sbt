@@ -44,3 +44,4 @@ lazy val $name$_service = (project in file("$name$-service"))
       "com.alibaba" % "druid" % "1.0.17",
       "org.springframework" % "spring-context" % "4.2.4.RELEASE"
     )).enablePlugins(ImageGeneratorPlugin)
+    .enablePlugins(DbGeneratorPlugin)

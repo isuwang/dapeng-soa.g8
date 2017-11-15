@@ -23,6 +23,14 @@
 > 5. 一个指令(sbt test)： 即可测试服务接口
 
 ### sbt-dapeng 插件怎么用
+#### 测试环境需求（后续会升级到正式版）:
+1. 确保java 的版本为 1.8
+2. 确保scala的版本为 2.12.2 或以上
+3. 确保sbt 的版本为  1.0.0 或以上
+4. 下载isuwang-soa项目: 切换到 plugin-test分支, 在根目录执行 ```mvn clean install```
+5. 下载sbt-dapeng项目: 在master 分支, 执行 ```sbt publishLocal```
+ps: 最好安装一下 sbt 代理，能加速sbt 的下载依赖以及构建:  ```https://github.com/Centaur/repox```
+
 #### 1. 使用sbt-dapeng快速启动测试hello项目
 下面我们来看一下如何使用sbt-dapeng来快速测试Hello项目
 
