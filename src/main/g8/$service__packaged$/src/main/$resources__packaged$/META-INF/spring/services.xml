@@ -19,9 +19,6 @@
     <bean id="helloScalaService" class="com.isuwang.soa.scala.hello.HelloServiceImpl"/>
     <soa:service ref="helloScalaService"/>
 
-    <bean id="helloService" class="com.isuwang.soa.hello.HelloServiceImpl"/>
-    <soa:service ref="helloService"/>
-
     <bean id="slf4j-filter" class="com.alibaba.druid.filter.logging.Slf4jLogFilter">
         <property name="statementExecutableSqlLogEnable" value="true"/>
     </bean>
