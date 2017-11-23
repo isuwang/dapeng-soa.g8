@@ -43,6 +43,8 @@ lazy val $name$_service = (project in file("$name$-service"))
       "org.codehaus.janino" % "janino" % "2.7.8", //logback (use if condition in logBack config file need this dependency)
       "mysql" % "mysql-connector-java" % "5.1.36",
       "com.alibaba" % "druid" % "1.0.17",
-      "org.springframework" % "spring-context" % "4.2.4.RELEASE"
+      "org.springframework" % "spring-context" % "4.2.4.RELEASE",
+      "com.isuwang" % "dapeng-registry-zookeeper" % "1.2.1",
+      "com.isuwang" % "dapeng-remoting-netty" % "1.2.1"
     )).enablePlugins(ImageGeneratorPlugin)
     .enablePlugins(DbGeneratorPlugin)
