@@ -1,1 +1,1 @@
-addSbtPlugin("com.isuwang" % "sbt-idlc" % "0.1-SNAPSHOT")
+addSbtPlugin("com.isuwang" % "sbt-dapeng" % "0.1-SNAPSHOT")
