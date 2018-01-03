@@ -1,11 +1,11 @@
-package $servicePackage$.scala.hello
+package com.isuwang.soa.scala.hello
 
-import $servicePackage$.scala.hello.domain.Hello
-import $servicePackage$.scala.hello.service.HelloService
-
+import com.isuwang.soa.hello.scala.domain.Hello
+import com.isuwang.soa.hello.scala.service.HelloService
 import javax.annotation.Resource
 import javax.sql.DataSource
 
+import com.isuwang.soa.hello.scala.service.HelloService
 import wangzx.scala_commons.sql._
 import entity.Company
 
@@ -18,11 +18,19 @@ class HelloServiceImpl extends HelloService {
   /**
     *
     **/
-  override def sayHello(content: String): Hello = {
-    //需要配置scala-sql.properties才能使用SQL做语法校验, sql则不会做语法校验
-    //val company = dataSource.row[Company](SQL" select * from companys where id = 119501")
+  override def sayHello(hello: Hello): String = {
     val company = dataSource.row[Company](sql" select * from companys where id = 119501")
-    println(s" companyInfo: $"$"${company}")
-    Hello(s"$"$"${company}")
+    println(s" companyInfo: \${company}")
+    company match {
+      case Some(c) => c.toString
+      case None => ""
+    }
+  }
+
+  /**
+    *
+    **/
+  override def test(content: String): Unit = {
+    println(s" received content: \${content}")
   }
 }

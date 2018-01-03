@@ -1,5 +1,5 @@
 
-        package com.isuwang.soa.scala.hello.service
+        package com.isuwang.soa.hello.scala.service
 
         import com.isuwang.dapeng.core.{Processor, Service}
         import com.isuwang.dapeng.core.SoaGlobalTransactional
@@ -11,17 +11,30 @@
  *  @generated
 
         * 
+
+ Hello Service
+
         **/
         @Service(name ="com.isuwang.soa.hello.service.HelloService" , version = "1.0.0")
-        @Processor(className = "com.isuwang.soa.scala.hello.HelloServiceCodec\$Processor")
+        @Processor(className = "com.isuwang.soa.hello.scala.HelloServiceCodec\$Processor")
         trait HelloService {
         
             /**
             * 
             **/
             
+            @throws[com.isuwang.dapeng.core.SoaException]
             def sayHello(
-            content: String ): com.isuwang.soa.scala.hello.domain.Hello
+            hello: com.isuwang.soa.hello.scala.domain.Hello ): String
+
+          
+            /**
+            * 
+            **/
+            
+            @throws[com.isuwang.dapeng.core.SoaException]
+            def test(
+            content: String ): Unit
 
           
         }

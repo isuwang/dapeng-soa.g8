@@ -22,8 +22,9 @@ lazy val api = (project in file("$name$-api"))
     commonSettings,
     name := "$name$-api",
     libraryDependencies ++= Seq(
-      "com.isuwang" % "dapeng-remoting-api" % "$dapengVersion$",
-      "com.isuwang" % "dapeng-remoting-netty" % "$dapengVersion$"
+      "com.isuwang" % "dapeng-core" % "$dapengVersion$",
+      "com.isuwang" % "dapeng-client-netty" % "$dapengVersion$",
+      "org.scala-lang.modules" %% "scala-java8-compat" % "0.8.0"
     )
   ).enablePlugins(ThriftGeneratorPlugin)
 
@@ -44,7 +45,7 @@ lazy val service = (project in file("$name$-service"))
       "com.alibaba" % "druid" % "1.0.17",
       "org.springframework" % "spring-context" % "4.2.4.RELEASE",
       "com.isuwang" % "dapeng-registry-zookeeper" % "$dapengVersion$",
-      "com.isuwang" % "dapeng-remoting-netty" % "$dapengVersion$"
+      "com.isuwang" % "dapeng-client-netty" % "$dapengVersion$"
     )).enablePlugins(ImageGeneratorPlugin)
     .enablePlugins(DbGeneratorPlugin)
   .enablePlugins(RunContainerPlugin)
